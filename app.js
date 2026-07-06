@@ -1,0 +1,1 @@
+console.log("MPI Smart Farming loaded");
