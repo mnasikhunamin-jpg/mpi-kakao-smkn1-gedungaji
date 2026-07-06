@@ -1,9 +1,161 @@
-<h1>Evaluasi Pembelajaran</h1>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evaluasi Pembelajaran</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-<ol>
-<li>Apa fungsi paranet?</li>
-<li>Mengapa media tanam harus porous?</li>
-<li>Sebutkan tahapan pembibitan generatif kakao.</li>
-<li>Apa tujuan perlakuan fungisida?</li>
-<li>Jelaskan prinsip sambung pucuk.</li>
-</ol>
+<body>
+
+<div class="card">
+
+<h1>📝 Evaluasi Pembelajaran</h1>
+
+<h3 id="nama"></h3>
+
+<form id="quiz">
+
+<h4>1. Lokasi pembibitan sebaiknya berada...</h4>
+<input type="radio" name="q1" value="10"> Dekat sumber air<br>
+<input type="radio" name="q1" value="0"> Di daerah banjir<br>
+<input type="radio" name="q1" value="0"> Jauh dari akses<br>
+<br>
+
+<h4>2. Tinggi bangunan pembibitan sederhana adalah...</h4>
+<input type="radio" name="q2" value="0"> 1 meter<br>
+<input type="radio" name="q2" value="10"> 1,5 meter<br>
+<input type="radio" name="q2" value="0"> 3 meter<br>
+<br>
+
+<h4>3. Atap pembibitan menggunakan...</h4>
+<input type="radio" name="q3" value="0"> Seng<br>
+<input type="radio" name="q3" value="10"> Paranet hitam<br>
+<input type="radio" name="q3" value="0"> Asbes<br>
+<br>
+
+<h4>4. Media tanam terdiri dari...</h4>
+<input type="radio" name="q4" value="10"> Tanah + pupuk kandang + arang sekam<br>
+<input type="radio" name="q4" value="0"> Pasir saja<br>
+<input type="radio" name="q4" value="0"> Lumpur<br>
+<br>
+
+<h4>5. Diameter polybag yang digunakan adalah...</h4>
+<input type="radio" name="q5" value="0"> 10 cm<br>
+<input type="radio" name="q5" value="10"> 20 cm<br>
+<input type="radio" name="q5" value="0"> 50 cm<br>
+<br>
+
+<h4>6. Benih kakao berasal dari buah...</h4>
+<input type="radio" name="q6" value="10"> Matang fisiologis<br>
+<input type="radio" name="q6" value="0"> Muda<br>
+<input type="radio" name="q6" value="0"> Busuk<br>
+<br>
+
+<h4>7. Fungisida digunakan untuk...</h4>
+<input type="radio" name="q7" value="10"> Mencegah jamur<br>
+<input type="radio" name="q7" value="0"> Mematikan benih<br>
+<input type="radio" name="q7" value="0"> Mengeringkan media<br>
+<br>
+
+<h4>8. Sambung pucuk termasuk perbanyakan...</h4>
+<input type="radio" name="q8" value="0"> Generatif<br>
+<input type="radio" name="q8" value="10"> Vegetatif<br>
+<input type="radio" name="q8" value="0"> Alami<br>
+<br>
+
+<h4>9. Batang atas pada sambung pucuk disebut...</h4>
+<input type="radio" name="q9" value="10"> Entres<br>
+<input type="radio" name="q9" value="0"> Rootstock<br>
+<input type="radio" name="q9" value="0"> Polybag<br>
+<br>
+
+<h4>10. Tujuan sambung pucuk adalah...</h4>
+<input type="radio" name="q10" value="10"> Mendapat tanaman unggul<br>
+<input type="radio" name="q10" value="0"> Mematikan tanaman<br>
+<input type="radio" name="q10" value="0"> Mengurangi produksi<br>
+<br>
+
+<button type="button" onclick="hitung()">
+Selesai Evaluasi
+</button>
+
+</form>
+
+<h2 id="hasil"></h2>
+
+<div id="sertifikat" style="display:none">
+
+<a href="sertifikat.html">
+
+<button>
+📜 Cetak Sertifikat
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("nama").innerHTML=
+"Peserta : "+
+localStorage.getItem("nama");
+
+function hitung(){
+
+let total=0;
+
+for(let i=1;i<=10;i++){
+
+let jawaban=
+document.querySelector(
+'input[name="q'+i+'"]:checked'
+);
+
+if(jawaban){
+total+=parseInt(
+jawaban.value
+);
+}
+
+}
+
+localStorage.setItem(
+"nilai",
+total
+);
+
+document.getElementById(
+"hasil"
+).innerHTML=
+"Nilai Anda : "+total;
+
+if(total>=70){
+
+document.getElementById(
+"sertifikat"
+).style.display=
+"block";
+
+alert(
+"Selamat, Anda lulus!"
+);
+
+}else{
+
+alert(
+"Nilai belum memenuhi batas kelulusan."
+);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
