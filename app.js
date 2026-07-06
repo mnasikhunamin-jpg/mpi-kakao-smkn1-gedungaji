@@ -1,28 +1,26 @@
-console.log("MPI aktif");
+console.log("MPI Smart Farming loaded");
 
-function loginSiswa(){
+function loginSiswa() {
 
-    let nama =
+    const nama =
         document.getElementById("nama").value;
 
-    let sekolah =
+    const sekolah =
         document.getElementById("sekolah").value;
 
-    if(nama=="" || sekolah==""){
-        alert("Silakan lengkapi data.");
+    if (nama === "" || sekolah === "") {
+        alert("Silakan lengkapi nama dan asal sekolah.");
         return;
     }
 
     localStorage.setItem(
-        "nama", nama
+        "nama",
+        nama
     );
 
     localStorage.setItem(
-        "sekolah", sekolah
-    );
-
-    alert(
-        "Selamat datang " + nama
+        "sekolah",
+        sekolah
     );
 
     window.location.href =
