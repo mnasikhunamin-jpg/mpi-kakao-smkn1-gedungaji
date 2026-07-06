@@ -1,11 +1,55 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="css/style.css"></head>
-<body><div class="card"><h2>Login Siswa</h2>
-<p>Pilih jenis kelamin</p>
-<button onclick="g='L'">👨 Laki-laki</button>
-<button onclick="g='P'">👩 Perempuan</button><br><br>
-<input id="n" placeholder="Nama"><br><br>
-<input id="s" placeholder="Asal sekolah"><br><br>
-<button onclick="go()">Masuk</button></div>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js"></script>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Login Peserta</h2>
+
+<h3>Pilih Jenis Kelamin</h3>
+
+<button onclick="pilih('L')">
+👨 Laki-laki
+</button>
+
+<button onclick="pilih('P')">
+👩 Perempuan
+</button>
+
+<br><br>
+
+<input
+id="nama"
+placeholder="Nama Peserta">
+
+<br><br>
+
+<input
+id="sekolah"
+placeholder="Asal Sekolah">
+
+<br><br>
+
+<button onclick="loginSiswa()">
+Masuk
+</button>
+
+</div>
+
 <script>
-let g='';function go(){localStorage.nama=n.value;localStorage.sekolah=s.value;location='dashboard.html';}
-</script></body></html>
+function pilih(x){
+localStorage.setItem(
+"jk",x
+);
+}
+</script>
+
+</body>
+</html>
