@@ -1,267 +1,277 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sertifikat MPI Kakao</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikat MPI SMKN 1 Gedung Aji</title>
+    <style>
+        /* Desain Dasar & Layout Pembungkus */
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-<style>
+        /* Container Sertifikat A4 Lanskap */
+        .certificate-container {
+            width: 297mm;
+            height: 210mm;
+            background-color: #fbf9f1; /* Soft Cream */
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
 
-body{
-    background:#dfe8d8;
-    font-family:Arial,sans-serif;
-    margin:0;
-    padding:30px;
-}
+        /* Bingkai Klasik Hijau */
+        .certificate-border {
+            border: 6px double #1e4620; /* Hijau Tua */
+            height: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
 
-.sertifikat{
+        /* Aksen Sudut Tradisional/Ornamental */
+        .certificate-border::before {
+            content: "❖";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: #1e4620;
+            font-size: 24px;
+        }
 
-    max-width:1100px;
-    margin:auto;
+        /* Watermark Kakao Samar di Tengah */
+        .watermark-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 180px;
+            opacity: 0.04;
+            color: #1e4620;
+            pointer-events: none;
+            user-select: none;
+        }
 
-    background:
-    linear-gradient(
-    rgba(255,255,255,0.95),
-    rgba(240,255,240,0.95));
+        /* Struktur Header */
+        .header {
+            text-align: center;
+            position: relative;
+        }
 
-    border:18px solid #2e7d32;
-    outline:8px solid #8bc34a;
+        .logo-placeholder {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #1e4620;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
 
-    padding:50px;
+        .main-title {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #1e4620;
+            margin: 5px 0;
+        }
 
-    box-shadow:
-    0 0 30px rgba(0,0,0,0.3);
+        .subtitle {
+            font-size: 20px;
+            font-style: italic;
+            color: #444;
+            margin: 0;
+        }
 
-    position:relative;
-}
+        /* Konten Utama */
+        .content {
+            text-align: center;
+            margin: 20px 0;
+        }
 
-.ornamen{
-    position:absolute;
-    opacity:0.08;
-    width:250px;
-}
+        .recipient-label {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
 
-.kiri{
-    top:30px;
-    left:20px;
-}
+        .recipient-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: #111;
+            border-bottom: 2px solid #1e4620;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
 
-.kanan{
-    bottom:20px;
-    right:20px;
-}
+        .evaluation-box {
+            margin: 20px auto;
+            padding: 15px;
+            background-color: rgba(30, 70, 32, 0.05);
+            border: 1px dashed #1e4620;
+            max-width: 400px;
+            border-radius: 4px;
+        }
 
-.logo{
-    width:130px;
-}
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e4620;
+        }
 
-.judul{
+        .predicate {
+            font-size: 20px;
+            font-weight: bold;
+            color: #c97d18;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
 
-    font-size:50px;
-    color:#1b5e20;
-    font-weight:bold;
-    margin-top:10px;
-}
+        /* Meta Data & Tanda Tangan */
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 10px;
+        }
 
-.sub{
-    font-size:20px;
-    color:#444;
-}
+        .meta-info {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
+        }
 
-.nama{
+        .signatures {
+            display: flex;
+            gap: 100px;
+        }
 
-    font-size:40px;
-    color:#0d47a1;
-    font-weight:bold;
+        .sig-block {
+            text-align: center;
+            width: 200px;
+        }
 
-    margin:25px 0;
-}
+        .role {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 60px; /* Ruang tanda tangan */
+        }
 
-.nilai{
+        .name {
+            font-size: 15px;
+            font-weight: bold;
+            color: #111;
+            text-decoration: underline;
+        }
 
-    font-size:28px;
-    color:#c62828;
-    font-weight:bold;
-}
-
-.keterangan{
-
-    font-size:20px;
-    line-height:1.7;
-}
-
-.ttd{
-
-    display:flex;
-    justify-content:space-between;
-
-    margin-top:90px;
-}
-
-.kolom{
-    width:40%;
-    text-align:center;
-}
-
-.garis{
-    border-top:2px solid black;
-    margin-top:70px;
-    padding-top:5px;
-}
-
-button{
-
-    background:#2e7d32;
-    color:white;
-
-    padding:15px 30px;
-
-    border:none;
-    border-radius:10px;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    margin-top:40px;
-}
-
-@media print{
-
-button{
-display:none;
-}
-
-body{
-background:white;
-padding:0;
-}
-
-}
-
-</style>
-
+        /* Media queries untuk kebutuhan print langsung dari browser */
+        @media print {
+            body { background: none; padding: 0; }
+            .certificate-container { box-shadow: none; page-break-after: always; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="sertifikat">
+    <div class="certificate-container">
+        <div class="certificate-border">
+            
+            <!-- Watermark Kakao Motif -->
+            <div class="watermark-bg">🫘</div>
 
-<img class="ornamen kiri"
-src="https://cdn-icons-png.flaticon.com/512/628/628324.png">
+            <!-- Bagian Atas / Kop -->
+            <div class="header">
+                <div class="logo-placeholder">★ SMKN 1 GEDUNG AJI ★</div>
+                <h1 class="main-title">SERTIFIKAT</h1>
+                <p class="subtitle">Multimedia Pembelajaran Interaktif (MPI)</p>
+            </div>
 
-<img class="ornamen kanan"
-src="https://cdn-icons-png.flaticon.com/512/628/628324.png">
+            <!-- Bagian Tengah / Informasi Peserta -->
+            <div class="content">
+                <div class="recipient-label">Diberikan Kepada :</div>
+                <div class="recipient-name">Muhamad Nasikhun Amin</div>
+                
+                <!-- Box Kelulusan & Predikat -->
+                <div class="evaluation-box">
+                    <div class="score">Nilai: <span id="input-score">95</span></div>
+                    <div class="predicate" id="output-predicate">MEMUASKAN</div>
+                </div>
+            </div>
 
-<center>
+            <!-- Bagian Bawah / Penandatangan & Legalitas -->
+            <div class="footer-section">
+                <!-- Sisi Kiri: Nomor ID, Tanggal & QR -->
+                <div class="meta-info">
+                    <div><strong>No. Sertifikat:</strong> <span id="cert-number">MPI-KAKAO/2026/0001</span></div>
+                    <div><strong>Tempat, Tanggal:</strong> <span id="current-date">Gedung Aji, 6 Juli 2026</span></div>
+                    <div style="margin-top: 10px; font-size: 11px; color: #888;">[ QR Code Verifikasi ]</div>
+                </div>
 
-<img
-class="logo"
-src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Logo_Sekolah.png/240px-Logo_Sekolah.png">
+                <!-- Sisi Kanan: Tanda Tangan Komite -->
+                <div class="signatures">
+                    <div class="sig-block">
+                        <div class="role">Kepala Sekolah</div>
+                        <div class="name">Hi. Zaenudin</div>
+                    </div>
+                    <div class="sig-block">
+                        <div class="role">Guru Pengembang</div>
+                        <div class="name">Muhamad N. Amin</div>
+                    </div>
+                </div>
+            </div>
 
-<div class="judul">
-SERTIFIKAT
-</div>
+        </div>
+    </div>
 
-<div class="sub">
-MULTIMEDIA PEMBELAJARAN INTERAKTIF
-</div>
+    <!-- Logika Otomatisasi Logika Angka ke Huruf & Tanggal -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Logika Penentuan Predikat Otomatis
+            const scoreElement = document.getElementById("input-score");
+            const predicateElement = document.getElementById("output-predicate");
+            const score = parseInt(scoreElement.innerText) || 0;
 
-<div class="sub">
-CP FASE F MENYIAPKAN BIBIT KAKAO
-</div>
+            if (score >= 90 && score <= 100) {
+                predicateElement.innerText = "Sangat Kompeten";
+            } else if (score >= 80 && score <= 89) {
+                predicateElement.innerText = "Kompeten";
+            } else if (score >= 70 && score <= 79) {
+                predicateElement.innerText = "Cukup Kompeten";
+            } else {
+                predicateElement.innerText = "Kurang Kompeten";
+            }
 
-<br>
-
-<div class="keterangan">
-Diberikan kepada peserta:
-</div>
-
-<div class="nama"
-id="nama">
-Nama Peserta
-</div>
-
-<div class="keterangan">
-
-yang telah menyelesaikan
-seluruh rangkaian pembelajaran
-dan evaluasi pada
-
-<b>
-MPI Smart Farming Kakao
-SMKN 1 Gedung Aji
-</b>
-
-</div>
-
-<br>
-
-<div class="nilai"
-id="nilai">
-Nilai : 100
-</div>
-
-</center>
-
-<div class="ttd">
-
-<div class="kolom">
-
-Mengetahui,<br>
-Kepala Sekolah
-
-<div class="garis">
-
-<b>
-Hi. Zaenudin Yudho, S.Hut., M.P
-</b>
-
-</div>
-
-</div>
-
-<div class="kolom">
-
-Guru Pengembang
-
-<div class="garis">
-
-<b>
-Muhamad Nasikhun Amin
-</b>
-
-</div>
-
-</div>
-
-</div>
-
-<center>
-
-<button onclick="window.print()">
-🖨 CETAK SERTIFIKAT
-</button>
-
-</center>
-
-</div>
-
-<script>
-
-document.getElementById(
-"nama"
-).innerHTML=
-localStorage.getItem("nama");
-
-document.getElementById(
-"nilai"
-).innerHTML=
-"Nilai Akhir : "
-+
-localStorage.getItem("nilai");
-
-</script>
-
+            // 2. Logika Tanggal Cetak Otomatis (Format Indonesia)
+            const dateElement = document.getElementById("current-date");
+            const namaBulan = [
+                "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+            ];
+            
+            const today = new Date();
+            const tgl = today.getDate();
+            const bln = namaBulan[today.getMonth()];
+            const thn = today.getFullYear();
+            
+            // Mengubah teks tanggal mengikuti sistem waktu cetak lokal komputer pengguna
+            dateElement.innerText = `Gedung Aji, ${tgl} ${bln} ${thn}`;
+        });
+    </script>
 </body>
 </html>
