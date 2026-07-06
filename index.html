@@ -1,166 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MPI Pembelajaran Interaktif Kakao</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f1ea;
-      color: #3b2f2f;
-    }
-
-    header {
-      background: #5a3e2b;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #7a553c;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      padding: 12px 18px;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    nav a:hover {
-      background: #a06b45;
-    }
-
-    .hero {
-      padding: 40px;
-      text-align: center;
-      background: url('assets/kakao-bg.jpg') center/cover;
-      color: white;
-    }
-
-    .container {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .card {
-      background: white;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #5a3e2b;
-      color: white;
-      margin-top: 30px;
-    }
-
-    button {
-      padding: 10px 15px;
-      background: #5a3e2b;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #7a553c;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MPI Smart Farming Kakao</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>MPI Pembelajaran Interaktif Kakao</h1>
-    <p>Media Pembelajaran Digital - Agribisnis Tanaman Perkebunan</p>
-  </header>
+<header>
+    <h1>🌱 MPI SMART FARMING</h1>
+    <h2>CP Fase F - Menyiapkan Bibit Kakao</h2>
+    <p>SMKN 1 Gedung Aji</p>
+    <p>Pengembang : Muhamad Nasikhun Amin</p>
+</header>
 
-  <nav>
-    <a href="#materi">Materi</a>
-    <a href="#video">Video</a>
-    <a href="#quiz">Quiz</a>
-    <a href="#tentang">Tentang</a>
-  </nav>
+<div class="hero">
 
-  <section class="hero">
-    <h2>Belajar Budidaya Kakao Lebih Interaktif</h2>
-    <p>Mulai dari pembibitan, penanaman, hingga panen</p>
-  </section>
+    <h3>Selamat Datang</h3>
 
-  <div class="container">
+    <p>
+        Multimedia Pembelajaran Interaktif
+        Agribisnis Tanaman Perkebunan
+    </p>
 
-    <section id="materi" class="card">
-      <h2>📘 Materi Pembelajaran</h2>
-      <ul>
-        <li>Pembibitan tanaman kakao</li>
-        <li>Persiapan lahan dan lubang tanam</li>
-        <li>Penanaman dan pemeliharaan</li>
-        <li>Pengendalian hama dan penyakit</li>
-        <li>Panen dan pasca panen</li>
-      </ul>
-    </section>
+    <a href="login.html">
+        <button>
+            MULAI PEMBELAJARAN
+        </button>
+    </a>
 
-    <section id="video" class="card">
-      <h2>🎥 Video Pembelajaran</h2>
-      <p>Tambahkan link video YouTube di sini:</p>
-      <iframe width="100%" height="315"
-        src="https://www.youtube.com/embed/"
-        title="Video Pembelajaran Kakao"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </section>
-
-    <section id="quiz" class="card">
-      <h2>🧠 Quiz Interaktif</h2>
-      <p>Apa media terbaik untuk pembibitan kakao?</p>
-      <button onclick="jawab(false)">Tanah liat saja</button>
-      <button onclick="jawab(true)">Top soil + kompos + pasir</button>
-      <button onclick="jawab(false)">Pasir saja</button>
-
-      <p id="hasil"></p>
-    </section>
-
-    <section id="tentang" class="card">
-      <h2>ℹ️ Tentang Aplikasi</h2>
-      <p>
-        MPI Kakao ini dibuat sebagai media pembelajaran digital interaktif
-        untuk siswa SMK Agribisnis Tanaman Perkebunan.
-      </p>
-    </section>
-
-  </div>
-
-  <footer>
-    <p>&copy; 2026 MPI Kakao - SMK Agribisnis Tanaman</p>
-  </footer>
-
-  <script>
-    function jawab(status) {
-      const hasil = document.getElementById("hasil");
-      if (status) {
-        hasil.innerHTML = "✔ Jawaban benar! Media tersebut paling ideal untuk pembibitan kakao.";
-        hasil.style.color = "green";
-      } else {
-        hasil.innerHTML = "✘ Jawaban kurang tepat, coba pelajari lagi materi pembibitan.";
-        hasil.style.color = "red";
-      }
-    }
-  </script>
+</div>
 
 </body>
 </html>
